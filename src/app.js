@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors'; // Importa el paquete CORS
+import session from 'express-session'; // Importa express-session
 
 import taskRoutes from './routes/tasks.routes.js';
 import indexRoutes from './routes/index.routes.js';
@@ -15,6 +16,14 @@ app.use(cors({
 }));
 
 app.use(express.json()); // Middleware para parsear JSON
+
+// Configuración de express-session
+app.use(session({
+    secret: 'tu_secreto', // Cambia esto por una cadena secreta única
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Cambia a true si usas HTTPS
+}));
 
 // Inicialización de rutas
 app.use('/api', indexRoutes);
