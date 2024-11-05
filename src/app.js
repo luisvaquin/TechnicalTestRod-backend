@@ -23,7 +23,7 @@ app.use(session({
     secret: 'tu_secreto', // Cambia esto por una cadena secreta única
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false } // Cambia a true si usas HTTPS
+    cookie: { secure: true } // Cambia a true si usas HTTPS
 }));
 
 // Inicialización de rutas
