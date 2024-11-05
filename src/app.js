@@ -11,7 +11,7 @@ const app = express();
 
 // Configura CORS para permitir solicitudes desde el frontend
 app.use(cors({
-    origin: 'http://localhost:5173', // Permite solicitudes desde localhost:5173
+    origin: ['http://localhost:5173', 'https://technicaltestrod-frontend.netlify.app'], // Permite solicitudes desde ambos orígenes
 }));
 
 app.use(express.json()); // Middleware para parsear JSON
