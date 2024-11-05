@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getAccount, getInfAccounts } from "../controllers/account.controller.js";
+import { getAccount, getInfAccounts, isAuthenticated } from "../controllers/account.controller.js";
 
 const router = Router()
+
 router.get('/account', getAccount)
-router.get('/InfoAccount', getInfAccounts)
+router.get('/InfoAccount', isAuthenticated, getInfAccounts);
 
 export default router
