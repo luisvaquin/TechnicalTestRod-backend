@@ -1,21 +1,24 @@
-USE basedezzzdfqwbciu6dn;
+USE btfafq7bks6gsbiwytmn;
 
+show databases;
 -- Tabla de usuarios para el inicio de sesión
 CREATE TABLE IF NOT EXISTS UserLogin (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codLog INT(10) NOT NULL,
-    userLog VARCHAR(10) NOT NULL,  -- Aumentado a 20 caracteres
-    passLog VARCHAR(10) NOT NULL  -- Aumentado a 20 caracteres
+    userLog VARCHAR(20) NOT NULL,  -- Aumentado a 20 caracteres
+    passLog VARCHAR(20) NOT NULL  -- Aumentado a 20 caracteres
 );
-
-ALTER TABLE UserLogin MODIFY userLog VARCHAR(20);
-ALTER TABLE UserLogin MODIFY passLog VARCHAR(20);
 
 -- Agregar datos estáticos para el Login
 INSERT INTO UserLogin (userLog, passLog, codLog)
-VALUES ('bi', 'admin', 87654321);
+	VALUES ('Luis', 'admin', 87654321);
+    
+INSERT INTO UserLogin (userLog, passLog, codLog)
+	VALUES ('Rodri', 'rodri', 12345678);
+    
+INSERT INTO UserLogin (userLog, passLog, codLog)
+	VALUES ('Pablo', 'pablo', 36987451);
 
-select * from UserLogin;
 
 -- Tabla para la información de las cuentas de los usuarios
 CREATE TABLE IF NOT EXISTS Accounts (
@@ -27,6 +30,11 @@ CREATE TABLE IF NOT EXISTS Accounts (
     active BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (user_id) REFERENCES UserLogin(id)  -- Cambiado a UserLogin
 );
+
+-- Agregar cuentas estáticas para el usuario 'Luis'
+INSERT INTO Accounts (user_id, account_number, balance, currency)
+VALUES (1, 'ACCT001', 1500.00, 'GTQ'),
+       (1, 'ACCT002', 200.00, 'USD');
 
 -- Tabla de tasas de cambio
 CREATE TABLE IF NOT EXISTS ExchangeRates (
@@ -55,4 +63,6 @@ CREATE TABLE IF NOT EXISTS Transactions (
 
 -- Verificar que la base de datos se ha creado
 SHOW DATABASES;
--- drop database Bi_pruebaTecLuisRod;
+
+
+-- -------------------FUNCION TRANSFERS PL/SQL-----------------
