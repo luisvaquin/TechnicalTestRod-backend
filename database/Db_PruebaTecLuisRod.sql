@@ -1,6 +1,4 @@
--- Creación de la base de datos si no existe
-CREATE DATABASE IF NOT EXISTS Bi_pruebaTecLuisRod;
-USE Bi_pruebaTecLuisRod;
+USE basedezzzdfqwbciu6dn;
 
 -- Tabla de usuarios para el inicio de sesión
 CREATE TABLE IF NOT EXISTS UserLogin (
@@ -15,7 +13,7 @@ ALTER TABLE UserLogin MODIFY passLog VARCHAR(20);
 
 -- Agregar datos estáticos para el Login
 INSERT INTO UserLogin (userLog, passLog, codLog)
-VALUES ('rodrigo', 'admin', 1234567890);
+VALUES ('bi', 'admin', 87654321);
 
 select * from UserLogin;
 

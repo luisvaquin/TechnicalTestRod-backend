@@ -15,7 +15,7 @@ export const postLogin = async (req, res) => {
 
         // Verificar si se encontró un usuario
         if (rows.length > 0) {
-            res.status(200).json({ message: 'Login exitoso', userId: rows[0].id });
+            res.status(200).json({ message: 'Inicio de sesion', Bienvenido: userLog, userId: rows[0].id, });
             console.log('Logeado correctamente')
         } else {
             // Si no se encontró el usuario, enviar un mensaje de error
